@@ -1,0 +1,20 @@
+server:
+  port: 8080
+
+spring:
+  cloud:
+    gateway:
+      routes:
+      - id: catalogue
+        uri: http://localhost:9082/
+        predicates:
+        - Path=/catalogue/**
+      - id: shoppingcart
+        uri: http://localhost:9083/
+        predicates:
+        - Path=/shoppingcart/**
+      - id: userinfo
+        uri: http://localhost:9081/
+        predicates:
+        - Path=/userinfo/**
+        
