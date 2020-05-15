@@ -18,3 +18,8 @@ spring:
         predicates:
         - Path=/userinfo/**
         
+okta:
+    oauth2:
+        clientId: 0oac075nvDAYJ5YhX4x6
+        clientSecret: <<ClientSecret>>
+        issuer: https://dev-243143.okta.com/oauth2/default        
