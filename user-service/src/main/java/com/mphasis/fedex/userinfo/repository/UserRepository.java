@@ -8,5 +8,4 @@ public interface UserRepository extends PagingAndSortingRepository<User, Integer
 	
 	User findByUserId(Integer userId);
 	
-	
 }

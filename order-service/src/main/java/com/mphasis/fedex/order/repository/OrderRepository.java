@@ -8,5 +8,4 @@ public interface OrderRepository extends PagingAndSortingRepository<Order, Integ
 	
 	Order findByOrderId(Integer orderId);
 	
-	
 }

@@ -1,7 +1,0 @@
-com\mphasis\fedex\catalogue\controller\CatalogueController.class
-com\mphasis\fedex\catalogue\dao\CatalogueDAO.class
-com\mphasis\fedex\catalogue\CatalogueApplication.class
-com\mphasis\fedex\catalogue\model\Catalogue.class
-com\mphasis\fedex\catalogue\repository\CatalogueRepository.class
-com\mphasis\fedex\catalogue\service\CatalogueService.class
-com\mphasis\fedex\catalogue\ServletInitializer.class

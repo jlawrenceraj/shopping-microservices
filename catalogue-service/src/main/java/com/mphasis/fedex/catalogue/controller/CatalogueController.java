@@ -3,6 +3,8 @@ package com.mphasis.fedex.catalogue.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -23,23 +25,23 @@ public class CatalogueController {
 	CatalogueService catalogueService;
 	
 	@GetMapping
-	public List<Catalogue> getProducts() {
-		return catalogueService.getProducts();
+	public ResponseEntity<List<Catalogue>> getProducts() {
+		return ResponseEntity.status(HttpStatus.OK).body(catalogueService.getProducts());
 	}
 
 	@GetMapping("{productId}")
-	public Catalogue getProductById(@PathVariable("productId") Integer productId) {
-		return catalogueService.getByProductId(productId);
+	public ResponseEntity<Catalogue> getProductById(@PathVariable("productId") Integer productId) {
+		return ResponseEntity.status(HttpStatus.OK).body(catalogueService.getByProductId(productId));
 	}
 
 	@PostMapping
-	public Catalogue saveCatalogue(@RequestBody Catalogue catalogue) {
-		return catalogueService.saveCatalogue(catalogue);
+	public ResponseEntity<Catalogue> saveCatalogue(@RequestBody Catalogue catalogue) {
+		return ResponseEntity.status(HttpStatus.CREATED).body(catalogueService.saveCatalogue(catalogue));
 	}
 
 	@PutMapping
-	public Catalogue updateCatalogue(@RequestBody Catalogue catalogue) {
-		return catalogueService.saveCatalogue(catalogue);
+	public ResponseEntity<Catalogue> updateCatalogue(@RequestBody Catalogue catalogue) {
+		return ResponseEntity.status(HttpStatus.OK).body(catalogueService.saveCatalogue(catalogue));
 	}
 
 	@DeleteMapping("{productId}")

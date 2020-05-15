@@ -13,14 +13,11 @@ public class OrderDAO {
 	OrderRepository orderRepository;
 	
 	public Iterable<Order> findAll() {
-		
 		return orderRepository.findAll();
-		
 	}
 	
 	public Order findByOrderId(Integer productId) {
 		return orderRepository.findByOrderId(productId);
-		
 	}
 
 	public Order saveOrder(Order order) {
@@ -29,7 +26,6 @@ public class OrderDAO {
 
 	public void deleteOrderById(Integer orderId) {
 		orderRepository.deleteById(orderId);
-		
 	}
 
 }

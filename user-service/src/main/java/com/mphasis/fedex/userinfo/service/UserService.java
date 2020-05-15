@@ -16,19 +16,16 @@ public class UserService {
 	UserDAO userDAO;
 	
 	public List<User> getUsers() {
-		
 		List<User> users = new ArrayList<>();
 		userDAO.findAll().forEach(user -> users.add(user));;
 		return users;
 	}
 	
 	public User getUsersByUserId(Integer userId) {
-
 		return userDAO.findByUserId(userId);
 	}
 
 	public User saveUsers(User user) {
-
 		return userDAO.saveUser(user);
 	}
 }
