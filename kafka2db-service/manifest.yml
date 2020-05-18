@@ -1,0 +1,19 @@
+applications:
+- name: shopping-kafka2db-service
+  disk_quota: 1G
+  instances: 1
+#   https://github.com/cloudfoundry/java-buildpack/issues/663
+  memory: 512M
+  env:
+    JAVA_OPTS: '-XX:ReservedCodeCacheSize=32M -XX:MaxDirectMemorySize=32M'
+    JBP_CONFIG_OPEN_JDK_JRE: '[memory_calculator: {stack_threads: 30}, jre: {version: 11.+}]'
+  path: target/shopping-kafka2db-service.jar 
+  #org: mphasis-fedex-org
+  #space: development
+  timeout: 120
+  routes:
+  - route: shopping-kafka2db-service-2020.cfapps.io
+# random-route: true  
+  stack: cflinuxfs3
+  buildpacks:
+  - https://github.com/cloudfoundry/java-buildpack.git

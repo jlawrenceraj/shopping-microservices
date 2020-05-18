@@ -1,0 +1,8 @@
+spring:
+  cloud:
+    stream:
+      bindings:
+        input:
+          destination: user-stream,order-stream,catalogue-stream 
+          
+          

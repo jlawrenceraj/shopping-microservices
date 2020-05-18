@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.mphasis.fedex.userinfo.dao.UserDAO;
+import com.mphasis.fedex.userinfo.kafka.KafkaUserService;
 import com.mphasis.fedex.userinfo.model.User;
 
 @Service
@@ -14,6 +15,9 @@ public class UserService {
 
 	@Autowired
 	UserDAO userDAO;
+	
+	@Autowired
+	KafkaUserService kafkaUserService;
 	
 	public List<User> getUsers() {
 		List<User> users = new ArrayList<>();
@@ -26,6 +30,6 @@ public class UserService {
 	}
 
 	public User saveUsers(User user) {
-		return userDAO.saveUser(user);
+		return kafkaUserService.saveUser(user);
 	}
 }

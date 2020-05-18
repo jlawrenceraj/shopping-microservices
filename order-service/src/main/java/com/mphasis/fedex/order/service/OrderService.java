@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.mphasis.fedex.order.dao.OrderDAO;
+import com.mphasis.fedex.order.kafka.KafkaOrderService;
 import com.mphasis.fedex.order.model.Catalogue;
 import com.mphasis.fedex.order.model.Order;
 import com.mphasis.fedex.order.model.OrderDetails;
@@ -18,6 +19,9 @@ public class OrderService {
 
 	@Autowired
 	OrderDAO orderDAO;
+	
+	@Autowired
+	KafkaOrderService kafkaOrderService;
 	
 	@Autowired
 	UserFeignClient userFeignClient;
@@ -46,7 +50,8 @@ public class OrderService {
 	}
 
 	public Order saveOrder(Order order) {
-		return orderDAO.saveOrder(order);
+		kafkaOrderService.saveOrder(order);
+		return order;
 	}
 
 	public void deleteProductById(Integer orderId) {
